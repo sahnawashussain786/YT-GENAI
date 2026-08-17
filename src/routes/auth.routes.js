@@ -1,4 +1,5 @@
 import { Router } from "express";
+import authController from "../controllers/auth.controller";
 
 const authRouter = Router();
 
@@ -6,6 +7,6 @@ const authRouter = Router();
 // description register a new user
 // access public
 
-authRouter.post("/register")
+authRouter.post("/register", authController.registerUserController)
 
 export default authRouter;
