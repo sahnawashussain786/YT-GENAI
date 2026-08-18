@@ -17,4 +17,12 @@ authRouter.post("/register", authController.registerUserController)
 
 authRouter.post("/login", authController.loginUserController)
 
+/**
+ * @route POST /api/auth/logout
+ * @description clear token from user cookie and add token in blacklist
+ * @access public
+ */
+
+authRouter.post("/logout", authController.logoutUserController)
+
 export default authRouter;
