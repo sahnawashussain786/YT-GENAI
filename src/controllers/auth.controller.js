@@ -105,15 +105,38 @@ async function loginUserController(req, res) {
  * @access public
  */
 
-async function logoutUserController(req,res) {
-  const token = req.cookies.token
-  if(token){
-    await tokenBlacklistModel.create({token})
+async function logoutUserController(req, res) {
+  const token = req.cookies.token;
+  if (token) {
+    await tokenBlacklistModel.create({ token });
   }
-  res.clearCookie("token")
+  res.clearCookie("token");
   res.status(200).json({
-    message: "User logged out successfully"
-  })
+    message: "User logged out successfully",
+  });
 }
 
-export default { registerUserController, loginUserController, logoutUserController };
+/**
+ * @name-getMeController
+ * @description get the current logged in user details.
+ * @access public
+ */
+
+async function getMeController(req, res) {
+  const user = await userModel.findById(req.user.id);
+  res.status(200).json({
+    message: "user details fetched successfully",
+    user: {
+      id: user._id,
+      username: user.username,
+      email: user.email,
+    },
+  });
+}
+
+export default {
+  registerUserController,
+  loginUserController,
+  logoutUserController,
+  getMeController
+};
