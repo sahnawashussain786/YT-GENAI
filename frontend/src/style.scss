@@ -1,12 +1,19 @@
+@use './styles/button.scss';
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Outfit, sans-serif;
 }
 
 html,
 body,
 #root {
+  height: 100vh;
   width: 100%;
   background-color: #aaa0a0;
 }
+
+
