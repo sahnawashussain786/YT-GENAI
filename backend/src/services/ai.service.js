@@ -1,20 +1,13 @@
 import { GoogleGenAI } from "@google/genai";
+import { z } from "zod";
+import {zodToJsonSchema} from 'zod-to-json-schema'
 
-async function invokeGeminiAI() {
-    const apiKey = process.env.GOOGLE_GENAI_API_KEY;
+const ai = new GoogleGenAI({
+    apiKey: process.env.GOOGLE_GENAI_API_KEY
+})
 
-    if (!apiKey) {
-        throw new Error("GOOGLE_GENAI_API_KEY is not configured");
-    }
-
-    const ai = new GoogleGenAI({ apiKey });
-
-    const response = await ai.models.generateContent({
-        model: "gemini-3.6-flash",
-        contents: "Hello Gemini ! Explain what is interview ?"
-    })
-
-    console.log(response.text)
+async function generateInterviewReport({resume,selfDescription,jobDescription}) {
+    
 }
 
-export default invokeGeminiAI
+export default invokeGeminiAI;

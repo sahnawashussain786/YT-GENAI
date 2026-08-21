@@ -21,9 +21,13 @@
     "express": "^5.2.1",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.9.2",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "zod": "^4.4.3",
+    "zod-to-json-schema": "^3.25.2"
   },
   "allowScripts": {
-    "@google/genai@2.18.0": true
+    "@google/genai@2.18.0": true,
+    "zod@4.4.3": true,
+    "zod-to-json-schema@3.25.2": true
   }
 }
